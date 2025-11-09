@@ -1,0 +1,235 @@
+:root{
+  --bg:#ffffff;
+  --bg-alt:#f9f8f6;     /* 淡ベージュ */
+  --ink:#1a1a1a;
+  --ink-2:#595e63;      /* サブ文字 */
+  --ink-3:#8a8f95;      /* 補助文字 */
+  --line:#e4e6e8;       /* 罫線 */
+  --accent:#bfcdbb;     /* 淡グリーン（枠・下線） */
+  --accent-soft:#dee5db;/* ごく薄いグリーン（面） */
+  --radius:14px;
+  --sp-1:8px; --sp-2:12px; --sp-3:16px; --sp-4:20px;
+  --sp-5:24px; --sp-6:32px; --sp-7:40px; --sp-8:56px;
+}
+body{
+  font-family:"Noto Sans JP", system-ui, sans-serif;
+  color:var(--ink); background:var(--bg);
+  line-height:1.8; letter-spacing:.01em;
+}
+.section{ padding:var(--sp-8) 0; }
+.section.alt{ background:var(--bg-alt); }
+.section-title{
+  font-size:26px; font-weight:700; text-align:center; margin:0 0 var(--sp-6);
+  letter-spacing:.02em; position:relative; display:inline-block; left:50%; transform:translateX(-50%);
+}
+.section-title::after{
+  content:""; display:block; width:64px; height:2px; background:var(--accent);
+  margin:12px auto 0;
+}
+
+img{max-width:100%; display:block}
+a{color:inherit; text-decoration:none}
+.container{max-width:1040px; margin:0 auto; padding:0 var(--sp-3)}
+
+.lead {
+  margin: 0 0 var(--sp-4);
+  color: var(--ink-2);
+  white-space: normal;     /* 改行を有効化 */
+  line-height: 1.8;        /* 行間をゆったり */
+}
+
+/* 先頭文はPCで必ず1行にする */
+.nowrap{
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+
+/* header */
+.site-header{
+  position:sticky; top:0; z-index:10;
+  background:var(--accent-soft); /* 淡いグリーン */
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(6px);
+}
+.header-inner{
+  height:68px; display:flex; align-items:center; justify-content:space-between;
+}
+.brand{ display:flex; align-items:center; gap:10px; }
+.logo{ height:40px; width:auto; display:block; }
+.site-nav a{
+  margin-left:16px; color:var(--ink); font-weight:500; position:relative;
+}
+.site-title{
+  font-weight:700; font-size:20px; letter-spacing:.04em;
+  color:var(--ink); /* ヘッダーが淡グリーンでも読める色 */
+  line-height:1;
+}
+.site-header{ position:sticky; top:0; z-index:10; }
+.site-nav a::after{
+  content:""; position:absolute; bottom:-4px; left:0; width:0; height:2px;
+  background:var(--accent); transition:width .3s ease;
+}
+.site-nav a:hover::after{ width:100%; }
+.site-nav .btn.small{
+  margin-left:18px; padding:8px 14px; min-width:auto;
+  border:1px solid var(--accent); background:#fff; color:var(--ink); border-radius:999px;
+}
+
+
+/* hero */
+.hero{padding:var(--sp-8) 0; background:var(--bg-alt);}
+.hero-wrap {
+  display: grid;
+  gap: var(--sp-5);
+  grid-template-columns: 1fr 0.9fr; /* ← 左のテキストをやや広くする */
+  align-items: center;
+}
+.catch{margin:0 0 var(--sp-2); font-size:clamp(24px,4.5vw,40px); line-height:1.35; font-weight:700; color:#2f312e;}
+.lead{margin:0 0 var(--sp-4); color:var(--ink-2)}
+.hero-visual{border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:var(--accent-soft); filter:saturate(88%) contrast(102%)}
+.hero-visual img{aspect-ratio:4/3; object-fit:cover}
+
+/* section */
+.section{padding:var(--sp-8) 0;}
+.section.alt{background:var(--bg);}
+.section-title{
+  font-size:26px; font-weight:700; letter-spacing:.02em; text-align:center;
+  margin:0 0 var(--sp-6); position:relative; display:inline-block;
+}
+.section-title::after{
+  content:""; display:block; width:60px; height:2px; background:var(--accent);
+  margin:12px auto 0;
+}
+
+/* cards */
+.grid-3{display:grid; gap:var(--sp-4); grid-template-columns:repeat(3,1fr)}
+.card{border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:#fff; transition:border-color .3s;}
+.card:hover{border-color:var(--accent);}
+.card img{aspect-ratio:4/3; object-fit:cover}
+.card .body{padding:var(--sp-3)}
+.card h3{margin:0 0 .25rem; font-size:18px; font-weight:700}
+.card p{margin:.25rem 0; color:var(--ink-2)}
+.card .price{margin-top:.25rem; font-weight:700; color:var(--ink)}
+
+/* price */
+.pricing{
+  display:grid; gap:24px; grid-template-columns:repeat(3,1fr);
+  margin-bottom:16px;
+}
+.plan{
+  border:1px solid var(--line); border-radius:var(--radius); background:#fff; padding:24px;
+}
+.plan h4{ margin:0 0 4px; font-size:18px; font-weight:700; letter-spacing:.02em; }
+.plan .desc{ margin:0 0 12px; color:var(--ink-2); }
+.plan .yen{ margin:0; font-size:22px; font-weight:700; }
+.plan.featured {
+  position: relative;
+  background: #f9f8f6; /* ベージュ系（統一感） */
+  border-color: var(--accent); /* 枠線のみ淡グリーン */
+}
+
+.plan .label {
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  background: #d8cfc3; /* ベージュ系 */
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+}
+
+.note-small{ color:var(--ink-3); text-align:center; margin:8px 0 0; }
+
+
+/* voice */
+.voices{display:grid; gap:var(--sp-3); grid-template-columns:repeat(3,1fr)}
+.voice{
+  border:1px solid var(--line); border-radius:12px;
+  padding:var(--sp-3); background:#fff;
+  transition:background .3s;
+}
+.voice:hover{background:var(--accent-soft);}
+.voice cite{display:block; margin-top:.5rem; color:var(--ink-3); font-style:normal}
+
+/* buttons */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:12px 18px; border-radius:999px; min-width:180px;
+  border:1px solid var(--accent); color:var(--ink); background:#fff;
+  transition:background .25s, border-color .25s;
+}
+.btn:hover{ background:var(--accent-soft); border-color:var(--accent); }
+.btn.ghost{ border-color:var(--accent); color:var(--ink); background:#fff; }
+.btn.ghost:hover{ background:var(--accent-soft); }
+
+
+
+/* reserve CTA */
+#reserve{background:var(--accent-soft);}
+.reserve-actions{display:flex; gap:var(--sp-3); justify-content:center; margin-bottom:var(--sp-5);}
+/* フォームの外側幅を上限内に収める */
+.form{
+  width: min(100%, 680px);
+  max-width: 100%;
+  margin: 0 auto;
+  padding: clamp(16px, 3vw, var(--sp-5));
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+.form label{display:block; margin-bottom:.5rem; font-weight:500}
+/* 入力欄が親幅を超えないようにする */
+.form input,
+.form textarea{
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* PC幅でも横はみ出しを抑制（保険） */
+#reserve { overflow-x: hidden; }
+.form input:focus,.form textarea:focus{
+  border-color:var(--accent); box-shadow:0 0 0 3px rgba(183,201,170,.25)
+}
+
+/* 幅計算の安定化：全要素でborder-boxを徹底 */
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+/* footer */
+.site-footer{border-top:1px solid var(--line); background:var(--bg);}
+.footer-inner{height:72px; display:flex; align-items:center; justify-content:space-between;}
+.copy{color:var(--ink-3); margin:0;}
+.to-top{color:var(--ink-3);}
+
+/* responsive */
+/* 画像がテキストを圧迫しないように幅配分を見直す（PC） */
+@media (min-width: 960px){
+  .hero-wrap{
+    display:grid;
+    gap: var(--sp-5);
+    grid-template-columns: 1.2fr 0.8fr; /* テキスト側を広く */
+    align-items: center;
+  }
+  .hero-text{ min-width: 560px; }       /* 先頭文が収まる幅を確保 */
+  .hero-visual{ max-width: 520px; justify-self: end; }
+  .hero-visual img{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+}
+
+/* スマホでは自然な改行に戻す */
+@media (max-width: 560px){
+  .nowrap{ white-space: normal; }
+}
